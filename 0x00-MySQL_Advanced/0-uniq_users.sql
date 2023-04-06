@@ -1,3 +1,5 @@
+--USE hbtn_0d_tvshows;
+--DROP TABLE IF EXISTS user;
 CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT,
 	email VARCHAR(255) NOT NULL UNIQUE,
