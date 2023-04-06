@@ -1,7 +1,7 @@
-USE hbtn_0d_tvshows;
+-- USE hbtn_0d_tvshows;
 /* selects MYSQL database to utilize */
 
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS users;
 /* checks the newly selected database if a users table exists if it does it deletes */
 
 CREATE TABLE users (
