@@ -1,4 +1,5 @@
-/* create a table users checks if it already exists and creates it if doesn't */
+-- USE hbtn_0d_tvshows
+-- create a table users checks if it already exists and creates it if doesn't
 
 CREATE TABLE IF NOT EXISTS users (
 	id INT NOT NULL AUTO_INCREMENT,
