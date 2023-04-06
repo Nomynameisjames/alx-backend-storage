@@ -8,12 +8,12 @@
 */
 DELIMITER $$
 CREATE PROCEDURE fan_ranking() --declaration of procedure with no parameter to rank fans
-	BEGIN
-		SELECT origin, SUM(fans) AS nb_fans
-    		FROM metal_bands
-    		GROUP BY origin
-    		ORDER BY nb_fans DESC;
-	END$$
+    BEGIN
+	SELECT origin, SUM(fans) AS nb_fans
+    	FROM metal_bands
+    	GROUP BY origin
+    	ORDER BY nb_fans DESC;
+    END$$
 CALL fan_ranking()$$  --procedure is called
 DELIMITER ; --delimiter is reverted back to the default semi-colon
 
