@@ -2,10 +2,11 @@
 /* create a table users checks if it already exists and creates it if doesn't */
 
 CREATE TABLE IF NOT EXISTS users (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id INT NOT NULL AUTO_INCREMENT,
     	email VARCHAR(255) NOT NULL UNIQUE,
     	name VARCHAR(255),
-    	country ENUM('CO', 'US', 'TN') NOT NULL DEFAULT 'US'
+    	country ENUM('CO', 'US', 'TN') NOT NULL DEFAULT 'US',
+	PRIMARY KEY(id)
 );
 
 /* One of the distinct datatype used in this file
