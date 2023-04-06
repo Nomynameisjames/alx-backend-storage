@@ -11,8 +11,3 @@ CREATE TABLE users (
 	name VARCHAR(255),
 	PRIMARY KEY(`id`)
 );
-
-/* creates a new table on the selected database and sets id as the primary key
-   ensure its not initialised with a default value of NULL
-   also creates a column email with a UNIQUE INDEX syntax
-*/
