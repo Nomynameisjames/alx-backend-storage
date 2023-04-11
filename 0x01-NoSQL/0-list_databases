@@ -1,4 +1,4 @@
-// file contains script that displays all database in a mondoDB
+// file contains script that displays all current database in a mondoDB
 `mongo`
 `show databases`
 
