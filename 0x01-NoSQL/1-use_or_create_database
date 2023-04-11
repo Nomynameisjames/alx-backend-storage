@@ -1,7 +1,2 @@
-// script creates or use my_db database from mongoDB
-
-// invoke the mongoDB shell
-`mongo`
-
 // select or create database to interact with
-`use my_db`
+use my_db
