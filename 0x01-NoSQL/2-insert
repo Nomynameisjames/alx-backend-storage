@@ -1,5 +1,4 @@
 // inserting a new collection into the database
 
-// db.createCollection('school')
-
-db.school.insert({name: “Holberton school”})
+//db.createCollection('school')
+db.school.insert({ 'name': 'Holberton school' })
