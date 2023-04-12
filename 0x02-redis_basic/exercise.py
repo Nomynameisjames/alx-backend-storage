@@ -3,11 +3,7 @@
 import redis
 import uuid
 from typing import Union
-'''
-    import the redis module to establish a connection to the redis server
-    import uuid to generate random numbers
-    import Union from typing to annotate various datatypes
-'''
+
 difData = Union[int, float, str, bytes]
 
 
