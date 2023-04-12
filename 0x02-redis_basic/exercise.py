@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-'''import files'''
+''' import files '''
 import redis
 import uuid
 from typing import Union
@@ -8,8 +8,6 @@ from typing import Union
     import uuid to generate random numbers
     import Union from typing to annotate various datatypes
 '''
-
-
 difData = Union[int, float, str, bytes]
 
 
