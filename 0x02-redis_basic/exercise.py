@@ -2,20 +2,20 @@
 ''' import files '''
 import redis
 import uuid
-from typing import Union
+from typing import Union, Callable
 from functools import wraps
 
 difData = Union[int, float, str, bytes]
 
 
-def count_calls(fn: callable):
-    @wraps(fn)
-    def __qualname__(self, *args, **kwargs):
-        key = fn.__qualname__
+def count_calls(method: Callable) -> Callable:
+    @wraps(method)
+    def wrapper(self, *args, **kwargs):
+        key = method.__qualname__
         myRedisDB = self._redis
         myRedisDB.incr(key)
-        return fn(self, *args, **kwargs)
-    return __qualname__
+        return method(self, *args, **kwargs)
+    return wrapper
 
 
 class Cache:
