@@ -17,9 +17,9 @@ class Cache:
         self._redis.flushdb()
 
     def store(self, data: difData) -> str:
-        key: str = str(uuid.uuid4())
+        self._key: str = str(uuid.uuid4())
         self._redis.set(key, data)
-        return key
+        return self._key
 
     def get(self, key: str, fn=None):
         '''
