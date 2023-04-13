@@ -20,3 +20,21 @@ class Cache:
         key: str = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
+
+    def get(self, key: str, fn=None):
+        '''
+            get method uses a callable function to decode data from str
+            or uses the decode method to convert to a desired str
+        '''
+        data = self._redis.get(key)
+        if fn:
+            data = fn(data)
+            return data
+        else:
+            return data
+
+    def get_str(self, key: str):
+        return self.get(key, fn=lambda x: x.decode('utf-8'))
+
+    def get_int(self, key: str):
+        return self.get(key, fn=lambda x: int(x))
