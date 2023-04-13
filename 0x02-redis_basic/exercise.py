@@ -3,8 +3,19 @@
 import redis
 import uuid
 from typing import Union
+from functools import wraps
 
 difData = Union[int, float, str, bytes]
+
+
+def count_calls(fn: callable):
+    @wraps(fn)
+    def __qualname__(self, *args, **kwargs):
+        key = fn.__qualname__
+        myRedisDB = self._redis
+        myRedisDB.incr(key)
+        return fn(self, *args, **kwargs)
+    return __qualname__
 
 
 class Cache:
@@ -16,6 +27,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @count_calls
     def store(self, data: difData) -> str:
         _key: str = str(uuid.uuid4())
         self._redis.set(_key, data)
