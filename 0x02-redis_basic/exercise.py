@@ -7,8 +7,15 @@ from functools import wraps
 
 difData = Union[int, float, str, bytes]
 
+'''
+    function that increments the count for that key every time
+    the method is called and returns the value returned by the
+    original method.
+'''
+
 
 def count_calls(method: Callable) -> Callable:
+    ''' decorator returns a callable '''
     @wraps(method)
     def wrapper(self, *args, **kwargs):
         key = method.__qualname__
