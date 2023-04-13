@@ -47,6 +47,16 @@ def call_history(method: Callable) -> Callable:
         return output
     return wrapper
 
+def replay(fn: Callable):
+    
+    input_key = fn.__qualname__ + ':inputs'
+    output_key = fn.__qualname__ + ':outputs'
+    Input = fn._redis.lrange(input_key, 0, -1)
+    Output = fn._redis.lrange(output_key, 0, -1)
+    for i, (input_str, output_str) in enumerate(zip(Input, Output)):
+        input_file = input_str.decode('utf-8')
+        output_file = output_str.decode('utf-8')
+    return (input_file, output_file)
 
 class Cache:
     '''
